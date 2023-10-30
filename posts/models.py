@@ -1,6 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
-# Create your models here.
+from django.contrib.auth.models import User
+
 '''
     - title
     - author
@@ -10,6 +11,7 @@ from taggit.managers import TaggableManager
     - tags
 '''
 class post(models.Model):
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='post_author')
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=50000)
     publish_date = models.DateTimeField()
