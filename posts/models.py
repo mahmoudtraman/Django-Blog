@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
     - author
     - content
     - image
-    - publish_data
+    - publish_date
     - tags
 '''
 class post(models.Model):
