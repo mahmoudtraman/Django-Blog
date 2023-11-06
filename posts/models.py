@@ -2,6 +2,7 @@ from django.db import models
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
 from django.utils import timezone
+import readtime
 
 '''
     - title
@@ -21,3 +22,7 @@ class post(models.Model):
     
     def __str__(self):
        return self.title
+
+    def get_readtime(self):
+      result = readtime.of_text(self.content)
+      return result.text 
